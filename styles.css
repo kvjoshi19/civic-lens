@@ -1,11 +1,37 @@
-/* CSS by ///ADD/// YOUR NAME */
-
+/* CSS by Khanak */
+ 
 /* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-
-/* ///ADD/// CSS Reset */
-
-
+ 
+/* CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 100%;
+}
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ 
+ 
 /* Root Variables */
 :root {
   --blue-bulletin: #1D3557;
@@ -18,7 +44,7 @@
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   --transition: all 0.5s ease;
 }
-
+ 
 /* Manual Light/Dark Mode Styles*/
 body.light-mode {
   background-color: var(--watchdog-white);
@@ -37,29 +63,349 @@ body.dark-mode {
   border-radius: 1.5rem;
   cursor: pointer;
 }
-
-/* ///ADD/// Skip Link Styles */
-
-/* ///ADD/// Navigation Styles */
-
-/* ///ADD/// Global Layout Styles */
-
-/* ///ADD/// Global Text Styles */
-
-
-/* ///ADD/// medium styles 620px */
-
-
-/* ///ADD/// large styles 920px */
-
-
-/* ///ADD/// x-large styles 1024px */
-
-
-/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
-
-
-/* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
+ 
+/* Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-body);
+  z-index: 1000;
+}
+.skip-link:focus {
+  top: 0;
+}
+ 
+ 
+/* Navigation Styles */
+header {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 1rem;
+  position: relative;
+  padding-right: 4rem;
+}
+ 
+.menu-button {
+  display: block;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+ 
+/* Mobile: menu hidden by default */
+.menu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--blue-bulletin);
+}
+ 
+.menu li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--watchdog-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+ 
+/* Medium and up: hide menu button, show nav links as pill row */
+@media (min-width: 620px) {
+  .menu-button {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .menu li a {
+    background-color: var(--news-flash);
+    color: var(--watchdog-white);
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+ 
+ 
+/* Global Layout Styles */
+main {
+  padding: 1.5rem 1rem;
+}
+ 
+section {
+  margin-bottom: 2rem;
+}
+ 
+#breaking-news article {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+ 
+#breaking-news video {
+  width: 100%;
+}
+ 
+#featured-articles article {
+  border: 1px solid var(--story-subtitle);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+ 
+#alerts form {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 1rem;
+}
+ 
+#alerts input[type="text"],
+#alerts input[type="tel"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  border: none;
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+}
+ 
+#alerts fieldset {
+  border: none;
+  margin-bottom: 0.75rem;
+}
+ 
+#alerts fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+ 
+#alerts button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+ 
+footer {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 1.5rem 1rem;
+}
+ 
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+ 
+footer ul li a {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+ 
+footer p {
+  text-align: center;
+}
+ 
+ 
+/* Global Text Styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+}
+ 
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--watchdog-white);
+}
+ 
+h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+ 
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.4rem;
+}
+ 
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+ 
+.tagline {
+  font-style: italic;
+  font-size: 0.95rem;
+}
+ 
+header .tagline {
+  color: var(--watchdog-white);
+}
+ 
+blockquote.tagline {
+  text-align: center;
+  margin: 1rem 0;
+}
+ 
+#alerts legend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+ 
+footer h2 {
+  color: var(--watchdog-white);
+}
+ 
+footer p {
+  font-size: 0.875rem;
+}
+ 
+ 
+/* medium styles 620px */
+@media (min-width: 620px) {
+  main {
+    padding: 1.5rem;
+  }
+ 
+  #breaking-news {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+ 
+  #breaking-news h2 {
+    grid-column: 1 / -1;
+  }
+ 
+  #breaking-news article {
+    margin-bottom: 0;
+  }
+ 
+  #featured-articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+ 
+  #featured-articles h2 {
+    grid-column: 1 / -1;
+  }
+ 
+  #featured-articles article {
+    margin-bottom: 0;
+  }
+ 
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+ 
+  .prefs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+ 
+ 
+/* large styles 920px */
+@media (min-width: 920px) {
+  main {
+    padding: 2rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ 
+  header {
+    padding: 1rem 2.5rem;
+  }
+ 
+  h1 {
+    font-size: 2.5rem;
+  }
+ 
+  #featured-articles {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+ 
+  .prefs-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+ 
+ 
+/* x-large styles 1024px */
+@media (min-width: 1024px) {
+  main {
+    padding: 2rem 3rem;
+  }
+}
+ 
+ 
+/* Interaction Queries for color scheme light and dark and motion preference */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode):not(.light-mode) {
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
+}
+ 
+@media (prefers-color-scheme: dark) {
+  body:not(.dark-mode):not(.light-mode) {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+ 
+ 
+/* Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+  body:has(#menu-toggle:checked) .menu {
+    display: flex;
+  }
 }
